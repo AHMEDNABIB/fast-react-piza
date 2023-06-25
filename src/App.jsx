@@ -5,13 +5,15 @@ import Menu, {loader as menuLoader} from './features/menu/Menu';
 import CreateOrder from "./features/order/CreateOrder";
 import Order from "./features/order/Order";
 import Home from "./ui/Home";
+import Error from "./ui/Error";
 import AppLayout from "./ui/Applayout";
 // import { Children } from "react";
 
 
 const router = createBrowserRouter([
 	{
-		element: <AppLayout />,
+    element: <AppLayout />,
+    errorElement:<Error/>,
 	
 		children: [
 			{
@@ -21,7 +23,8 @@ const router = createBrowserRouter([
 			{
 				path: "/menu",
         element: <Menu />,
-        loader: menuLoader
+        loader: menuLoader,
+        errorElement: <Error/>
 				
 			},
 			{ path: "/cart", element: <Cart /> },
